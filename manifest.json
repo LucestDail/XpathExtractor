@@ -1,35 +1,47 @@
 {
-    "name": "HyosungITX XPath Extracting Tools",
-    "description": "XPath 추출하기 위한 크롬 확장 프로그램입니다.",
-    "version": "1.0",
-    "manifest_version": 3,
-    "background": {
-      "service_worker": "background.js"
-    },
-    "permissions": [
-      "storage", 
-      "activeTab", 
-      "tabs", 
-      "scripting",
-      "alarms",
-      "notifications"
-    ],
-    "content_scripts": [{
-      "matches": [ "http://*/*", "https://*/*"],
-      "css": ["styles.css"]
-    }],
-    "action": {
-      "default_icon": {
-        "16": "itx.png",
-        "32": "itx.png",
-        "48": "itx.png",
-        "128": "itx.png"
-      }
-    },
-    "icons": {
-      "16": "itx.png",
-      "32": "itx.png",
-      "48": "itx.png",
-      "128": "itx.png"
+  "name": "HyosungITX XPath Extracting Tools",
+  "description": "XPath 추출하기 위한 크롬 확장 프로그램입니다.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "scripting",
+    "alarms",
+    "notifications"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "css": [
+        "css/styles.css"
+      ],
+      "js": [
+        "js/jquery.min.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
     }
+  ],
+
+  "action": {
+    "default_icon": {
+      "16": "icon/itx.png",
+      "32": "icon/itx.png",
+      "48": "icon/itx.png",
+      "128": "icon/itx.png"
+    }
+  },
+  "icons": {
+    "16": "icon/itx.png",
+    "32": "icon/itx.png",
+    "48": "icon/itx.png",
+    "128": "icon/itx.png"
   }
+}
