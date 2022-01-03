@@ -34,6 +34,8 @@ setTimeout(function () {
     $('#injectHTMLtarget').html('<h1>HSITX XPath Selector</h1>');
     $('body').find("a").addClass("itxClass");
     $('body').find("a").attr("href", "#");
+    $('body').find("a").attr("draggable", "true");
+    $('body').find("a").attr("ondragstart", "drag(event)");
     /**
      * Get XPath (and Alert it testing)
      */
@@ -93,3 +95,22 @@ setTimeout(function () {
     }
   })
 });
+
+function dragStart(event) {
+  event.dataTransfer.setData("Text", event.target.id);
+  document.getElementById("demo").innerHTML = "Started to drag the p element";
+}
+
+function dragEnd(event) {
+  document.getElementById("demo").innerHTML = "Finished dragging the p element.";
+}
+
+function allowDrop(event) {
+  event.preventDefault();
+}
+
+function drop(event) {
+  event.preventDefault();
+  var data = event.dataTransfer.getData("Text");
+  event.target.appendChild(document.getElementById(data));
+}
