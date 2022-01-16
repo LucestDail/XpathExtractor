@@ -7,10 +7,12 @@ setTimeout(function () {
   var currentPageHeadSource = document.getElementsByTagName('head')[0].innerHTML;
   var currentPageBodySource = document.getElementsByTagName('body')[0].innerHTML;
   var injectPageHTML = '<div id="injectHTMLtarget" style="width:100%; height:100%"></div>';
+  var currentDragTarget = null;
   /**
    * Adding All Elements effect(hover)
    * for checking area themselves
    */
+
   $(document).ready(function () {
     /**
      * html injection condition checking
@@ -22,6 +24,7 @@ setTimeout(function () {
     } else {
       $('head').html(
         currentPageHeadSource +
+        '<script src="xpathExtractor.js"></script>' +
         '<link rel="stylesheet" href="' + stylesPath + '">'
       );
       $('body').html(
@@ -32,10 +35,34 @@ setTimeout(function () {
       );
     }
     $('#injectHTMLtarget').html('<h1>HSITX XPath Selector</h1>');
+    $('#injectHTMLtarget').on({
+      'dragenter' : function(e){
+        $(this).css('background-color','yellow');
+      },
+      'dragleave' : function(e){
+        $(this).css('background-color','white');
+      },
+      'dragover' : function(e){
+        e.preventDefault();
+        e.stopPropagation();
+      },
+      'drop' : function(e){
+        e.target.append(currentDragTarget);
+        console.log(currentDragTarget);
+      }
+    });
     $('body').find("a").addClass("itxClass");
     $('body').find("a").attr("href", "#");
     $('body').find("a").attr("draggable", "true");
-    $('body').find("a").attr("ondragstart", "drag(event)");
+    $('body').find("a").on({
+      'dragstart' : function(e){
+        currentDragTarget = e.target;
+      },
+      'dragend':function(e){
+        $('#injectHTMLtarget').css('background-color','white');
+      }
+    });
+    // $('body').find("a").attr("ondragstart", "currentDragTarget = this; console.log(currentDragTarget.innerHTML);");
     /**
      * Get XPath (and Alert it testing)
      */
@@ -92,25 +119,6 @@ setTimeout(function () {
       var evaluator = new XPathEvaluator();
       var result = evaluator.evaluate(path, document.documentElement, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
       return result.singleNodeValue;
-    }
+    };
   })
 });
-
-function dragStart(event) {
-  event.dataTransfer.setData("Text", event.target.id);
-  document.getElementById("demo").innerHTML = "Started to drag the p element";
-}
-
-function dragEnd(event) {
-  document.getElementById("demo").innerHTML = "Finished dragging the p element.";
-}
-
-function allowDrop(event) {
-  event.preventDefault();
-}
-
-function drop(event) {
-  event.preventDefault();
-  var data = event.dataTransfer.getData("Text");
-  event.target.appendChild(document.getElementById(data));
-}
