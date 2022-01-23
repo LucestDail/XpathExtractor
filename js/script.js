@@ -30,7 +30,7 @@ setTimeout(function () {
       $('body').html(
         '<div style="float:left; width: 100%; height: 100%;">' +
         '<div style="height: 100%; width: calc(100% - ' + menuWidth + 'px);">' + currentPageBodySource + '</div>' +
-        '<div id="injectedITXExtension" style="z-index:2147483647; position: fixed; bottom: 0; right: 0; height: 100%; width:' + menuWidth + 'px;">' + injectPageHTML + '</div>' +
+        '<div id="injectedITXExtension" style="z-index:100; position: fixed; overflow: scroll; bottom: 0; right: 0; height: 100%; width:' + menuWidth + 'px;">' + injectPageHTML + '</div>' +
         '</div>'
       );
     }
