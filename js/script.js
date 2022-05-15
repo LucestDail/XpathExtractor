@@ -34,7 +34,92 @@ setTimeout(function () {
         '</div>'
       );
     }
-    $('#injectHTMLtarget').html('<h1>HSITX XPath Selector</h1>');
+
+/*
+<label for="basic-url">Your crawl target info</label>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon-companycode">companycode/</span>
+  </div>
+  <input type="text" class="form-control" id="companycode" aria-describedby="basic-addon-companycode">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon-domainurl">domainurl/</span>
+  </div>
+  <input type="text" class="form-control" id="domainurl" aria-describedby="basic-addon-domainurl">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon-domainquerystring">domainquerystring/</span>
+  </div>
+  <input type="text" class="form-control" id="domainquerystring" aria-describedby="basic-addon-domainquerystring">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon-crawltype">crawltype/</span>
+  </div>
+  <input type="text" class="form-control" id="crawltype" aria-describedby="basic-addon-crawltype">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon-crawllinktarget">crawllinktarget/</span>
+  </div>
+  <input type="text" class="form-control" id="crawllinktarget" aria-describedby="basic-addon-crawllinktarget">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon-descriptioninfo">descriptioninfo/</span>
+  </div>
+  <input type="text" class="form-control" id="descriptioninfo" aria-describedby="basic-addon-descriptioninfo">
+</div>
+*/
+    $('#injectHTMLtarget').html(
+      '<h1>HSITX XPath Selector</h1>'+
+      '<button type="button" class="btn btn-primary">Link</button>'+
+      '<label for="basic-url">Your crawl target info</label>'+
+      '<div class="input-group mb-3">'+
+      '  <div class="input-group-prepend">'+
+      '    <span class="input-group-text" id="basic-addon-companycode">companycode/</span>'+
+      '  </div>'+
+      '  <input type="text" class="form-control" id="companycode" aria-describedby="basic-addon-companycode">'+
+      '</div>'+
+      '<div class="input-group mb-3">'+
+      '  <div class="input-group-prepend">'+
+      '    <span class="input-group-text" id="basic-addon-domainurl">domainurl/</span>'+
+      '  </div>'+
+      '  <input type="text" class="form-control" id="domainurl" aria-describedby="basic-addon-domainurl">'+
+      '</div>'+
+      '<div class="input-group mb-3">'+
+      '  <div class="input-group-prepend">'+
+      '    <span class="input-group-text" id="basic-addon-domainquerystring">domainquerystring/</span>'+
+      '  </div>'+
+      '  <input type="text" class="form-control" id="domainquerystring" aria-describedby="basic-addon-domainquerystring">'+
+      '</div>'+
+      '<div class="input-group mb-3">'+
+      '  <div class="input-group-prepend">'+
+      '    <span class="input-group-text" id="basic-addon-crawltype">crawltype/</span>'+
+      '  </div>'+
+      '  <input type="text" class="form-control" id="crawltype" aria-describedby="basic-addon-crawltype">'+
+      '</div>'+
+      '<div class="input-group mb-3">'+
+      '  <div class="input-group-prepend">'+
+      '    <span class="input-group-text" id="basic-addon-crawllinktarget">crawllinktarget/</span>'+
+      '  </div>'+
+      '  <input type="text" class="form-control" id="crawllinktarget" aria-describedby="basic-addon-crawllinktarget">'+
+      '</div>'+
+      '<div class="input-group mb-3">'+
+      '  <div class="input-group-prepend">'+
+      '    <span class="input-group-text" id="basic-addon-descriptioninfo">descriptioninfo/</span>'+
+      '  </div>'+
+      '  <input type="text" class="form-control" id="descriptioninfo" aria-describedby="basic-addon-descriptioninfo">'+
+      '</div>'
+    );
     $('#injectHTMLtarget').on({
       'dragenter' : function(e){
         $(this).css('background-color','yellow');

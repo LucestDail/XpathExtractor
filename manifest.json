@@ -22,11 +22,14 @@
       "css": [
         "css/styles.css",
         "css/jquery-ui.min.css",
-        "css/jquery-ui.theme.min.css"
+        "css/jquery-ui.theme.min.css",
+        "css/bootstrap-theme.css",
+        "css/bootstrap.css"
       ],
       "js": [
         "js/jquery.min.js",
         "js/jquery-ui.min.js",
+        "js/bootstrap.js",
         "js/xpathExtractor.js"
       ],
       "run_at": "document_end",
